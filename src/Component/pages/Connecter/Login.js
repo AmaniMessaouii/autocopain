@@ -159,14 +159,14 @@ function Login() {
                     </div>
                     <div className="remember-me flex-row align-items-center">
                         <input type="checkbox" id="remember" />
-                        <label htmlFor="remember" className='paraXlargeSemi primary-dark-color'>Se souvenir de moi</label>
+                        <label htmlFor="remember" className='paraLargeSemi primary-dark-color'>Se souvenir de moi</label>
                     </div>
                     <button type="submit" className="button-primary w-100" disabled={loader}>
                         {loader ? 'Chargement...' : 'Se connecter'}
                     </button>
                 </form>
                 <Link to="/forgot-pass" >
-                    <h6 className="forgot-pass" style={{margin:0}}>Identifiant oublié ?</h6>
+                    <h6 className="forgot-pass paraLargeSemi" style={{margin:0}}>Identifiant oublié ?</h6>
                 </Link>
 
                 <div className="signup">
