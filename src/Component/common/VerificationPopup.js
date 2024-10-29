@@ -3,8 +3,8 @@ import reussiImg from '../../assets/reussi.svg'
 import merciImg from '../../assets/succes.svg'
 import loader from '../../assets/loader.svg'
 
-function VerificationPopup({ isOpen, setIsOpen, title, description , valid }) {
-   
+function VerificationPopup({ isOpen, setIsOpen, title, description, valid, bottomType, buttonContent}) {
+
     const closePopup = (e) => {
         e.preventDefault();
         setIsOpen(false);
@@ -20,7 +20,13 @@ function VerificationPopup({ isOpen, setIsOpen, title, description , valid }) {
                             <span className="paraLargeR grey-color-900">
                                 {description}</span>
                         </div>
-                        <img src={loader} alt='loader' className='loader-popup' />
+                        {bottomType === 'loader' ? (
+                            <img src={loader} alt='loader' className='loader-popup' />
+                        ) : bottomType === 'button' ? (
+                            <button type="submit" className="button-primary w-100" onClick={closePopup}>{buttonContent}</button>
+                        ) : bottomType === 'vide' ? null : (
+                            null
+                        )}
                     </div>
                 </div>
             )}

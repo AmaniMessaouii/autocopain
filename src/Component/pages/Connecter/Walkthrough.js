@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import image1 from '../../../assets/phone0.png';
-import image2 from '../../../assets/phone1.png';
-import image3 from '../../../assets/phone2.png';
+import { welcomeData } from "../../constants"
 import vector from "../../../assets/Vector.svg";
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -13,23 +11,7 @@ function Walkthrough() {
     const swiperRef = useRef(null)
     const navigate = useNavigate();
 
-    const data = [
-        {
-            image: image1,
-            title: "Bienvenue sur AutoCopain",
-            description: "Demandez une assistance automobile rapide, N’IMPORTE OÙ, N’IMPORTE QUAND"
-        },
-        {
-            image: image2,
-            title: "Services Disponibles",
-            description: "Nos services comprennent Panne d’essence, Panne de batterie, Roue crevée et bien plus encore !"
-        },
-        {
-            image: image3,
-            title: "Assistance en Un Clic",
-            description: "Rejoignez notre communauté et restez serein sur la route."
-        },
-    ]
+ 
     const goToNextSlide = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
             swiperRef.current.swiper.slideNext();
@@ -46,7 +28,7 @@ function Walkthrough() {
                 onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
                 ref={swiperRef}
             >
-                {data.map((item, index) => (
+                {welcomeData.map((item, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex-Column align-items-center">
                             <div className="phone-image-container w-100 position-relative">

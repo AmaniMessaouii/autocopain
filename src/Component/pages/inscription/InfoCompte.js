@@ -136,7 +136,6 @@ function InfoCompte() {
                         </div>
                         <div className='flex-Column'>
                             <div className='input-group w-100 flex-row align-items-center'>
-
                                 <input
                                     type="text"
                                     name="CIN"

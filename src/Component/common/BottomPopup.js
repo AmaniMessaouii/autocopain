@@ -4,6 +4,7 @@ import cameraIcon from '../../assets/Camerawhite.svg'
 import BibliothèqueIcon from '../../assets/ImageWhite.svg'
 
 function BottomPopup({ isOpen, setIsOpen }) {
+
     const closePopup = () => {
         setIsOpen(false);
     };

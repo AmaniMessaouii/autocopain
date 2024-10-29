@@ -37,6 +37,7 @@ function Patienter() {
              title='Merci!'
              description='Vos données de vérification ont bien été envoyées.'
              valid={true}
+             bottomType='loader'
              />
         </div>
     )

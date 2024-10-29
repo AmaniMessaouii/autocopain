@@ -103,6 +103,7 @@ function NewPass() {
              title='Réussi!'
              description="Votre compte est prêt à être utilisé. Vous serez redirigé vers la page d'accueil dans quelques secondes."
              valid={false}
+             bottomType='loader'
              />
     
             <button className="button-primary w-100" onClick={openPopup}>Continuer</button>
