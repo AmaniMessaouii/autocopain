@@ -1,6 +1,6 @@
 import React from 'react'
 import ServicesList from '../../common/ServicesList';
-import MobileMenu from '../../common/MobileMenu';
+import MobileMenu from '../../layout/MobileMenu';
 function PanneList() {
   return (
     <div className='Container'>

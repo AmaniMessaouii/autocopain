@@ -1,6 +1,5 @@
 import React from 'react'
 // import devider from '../../assets/devider.svg'
-
 import stars from '../../assets/stars.svg'
 import Rating from 'react-rating'
 import { depanneurData } from "../constants"

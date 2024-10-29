@@ -3,11 +3,10 @@ import logo from "../../../assets/Logo.svg"
 import avatar from "../../../assets/photoAvatar.svg"
 import edit from "../../../assets/editIcon.svg"
 import profilelogo from '../../../assets/profilelogo.svg'
-
-import MobileMenu from '../../common/MobileMenu'
 import DeconnectPopup from '../../common/DeconnectPopup'
 import VerificationPopup from '../../common/VerificationPopup'
 import Menu from '../../common/Menu'
+import MobileMenu from '../../layout/MobileMenu'
 
 function ProfileAuto() {
     const [isOpen, setIsOpen] = useState(false);

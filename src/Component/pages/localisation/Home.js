@@ -5,10 +5,10 @@ import localbtn from '../../../assets/Button.svg'
 import stations from '../../../assets/stations.svg'
 import garages from '../../../assets/garages.svg'
 import map from '../../../assets/Maps-Component.svg'
-import MobileMenu from '../../common/MobileMenu'
 import garagePosition from '../../../assets/garage-position.svg'
 import stationPosition from '../../../assets/station-position.svg'
 import avatarPosition from '../../../assets/Avatar-position.svg'
+import MobileMenu from '../../layout/MobileMenu'
 
 function Home() {
     return (

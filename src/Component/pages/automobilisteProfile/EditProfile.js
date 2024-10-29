@@ -26,7 +26,6 @@ function EditProfile() {
                             // value={value.nom}
                             />
                         </div>
-                        {/* {errors.nom && <span className="error-message">{errors.nom}</span>} */}
                     </div>
                     <div className='flex-Column'>
                         <div className='input-group w-100 flex-row align-items-center'>
@@ -40,7 +39,6 @@ function EditProfile() {
                             // value={value.prenom}
                             />
                         </div>
-                        {/* {errors.prenom && <span className="error-message">{errors.prenom}</span>} */}
                     </div>
                     <div className='flex-Column'>
                         <div className='input-group w-100 flex-row align-items-center'>
@@ -53,7 +51,6 @@ function EditProfile() {
                             // value={value.CIN}
                             />
                         </div>
-                        {/* {errors.CIN && <span className="error-message">{errors.CIN}</span>} */}
                     </div>
                     <div className='flex-Column'>
                         <div className='input-group w-100 flex-row align-items-center'>
@@ -70,7 +67,6 @@ function EditProfile() {
                                 <img src={emailIcon} alt="profile" className='icon-input' />
                             </div>
                         </div>
-                        {/* {errors.email && <span className="error-message">{errors.email}</span>} */}
                     </div>
 
                     <div className='flex-Column'>
@@ -81,13 +77,10 @@ function EditProfile() {
                                 onChange={(phone) => setPhone(phone)}
                             />
                         </div>
-                        {/* {errors.phone && <span className="error-message">{errors.phone}</span>} */}
                     </div>
-
                     <button type="submit" className="button-secondary button-primary w-100">
                         Changer le mot de passe </button>
                 </form>
-
             </div>
             <div className='flex-Column'>
                 <div className="horizontal-divider"></div>

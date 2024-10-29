@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Suspense} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Loading from './Component/common/Loading';
+import Loading from './Component/layout/Loading';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {routes} from './utils/routes'

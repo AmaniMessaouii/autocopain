@@ -65,7 +65,7 @@ function AssistanceCenter() {
                         {activeTab === 'tab2' && <div className="">
                             <div className='flex-Column gap-24'>
                             {ContactData.map((item, index) => (
-                                <div className='faq-item flex-row align-items-center gap-16'>
+                                <div key={index} className='faq-item flex-row align-items-center gap-16'>
                                    <img src={item.image} alt=""/>  
                                    <span className='paraXlargeB'>{item.title}</span>
                                 </div>

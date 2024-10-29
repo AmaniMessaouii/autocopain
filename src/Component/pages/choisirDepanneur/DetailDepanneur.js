@@ -63,10 +63,11 @@ function DetailDepanneur() {
                     </div>
                 </div>
             </div>
+            <BottomNotePopup isOpen={isOpen} setIsOpen={setIsOpen}/>
+
             <div className='flex-Column align-items-center justify-content-center horizontal-divider-rounder padding-bottom'>
             <img src={phone} alt='' />
             </div>
-            <BottomNotePopup isOpen={isOpen} setIsOpen={setIsOpen}/>
 
         </div>
     )

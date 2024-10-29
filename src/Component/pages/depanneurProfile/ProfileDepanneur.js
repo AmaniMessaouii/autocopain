@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import logo from "../../../assets/Logo.svg"
 import avatar from "../../../assets/photoAvatar.svg"
 import profilelogo from '../../../assets/depanprofile.svg'
-import MobileMenu from '../../common/MobileMenu'
 import DeconnectPopup from '../../common/DeconnectPopup'
 import VerificationPopup from '../../common/VerificationPopup'
 import edit from '../../../assets/EditSquare.svg'
 import stars from '../../../assets/stars.svg'
 import Menu from '../../common/Menu'
+import MobileMenu from '../../layout/MobileMenu'
 function ProfileDepanneur() {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen0, setIsOpen0] = useState(false);
