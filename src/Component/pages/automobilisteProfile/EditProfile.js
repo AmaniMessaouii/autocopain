@@ -3,14 +3,25 @@ import arrow from "../../../assets/Arrow - Left.svg"
 import emailIcon from "../../../assets/emailIcon.svg"
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
+import { useNavigate } from 'react-router-dom';
 function EditProfile() {
     const [phone, setPhone] = useState('');
+    const userType = localStorage.getItem('userType');
+    const navigate = useNavigate();
 
+    const previousPage = () => {
+        if (userType === 'automobiliste'){
+            navigate('/profil-auto');
+
+        } else navigate('/profile-depanneur')
+
+    };
+   
     return (
         <div className='Container' style={{ padding: 0 }}>
             <div className='padding-container'>
                 <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" />
+                    <img src={arrow} alt="arrow" onClick={previousPage} />
                     <h4 className='grey-color-900 title-nowrap'>Informations sur le compte</h4>
                 </div>
                 <form className='flex-Column gap-30'>

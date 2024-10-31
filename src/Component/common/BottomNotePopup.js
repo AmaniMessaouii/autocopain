@@ -7,6 +7,8 @@ import yellowStar from '../../assets/star-yellow.svg'
 import greyStar from '../../assets/star-grey.svg'
 
 function BottomNotePopup({ isOpen, setIsOpen }) {
+
+
     const closePopup = () => {
         setIsOpen(false);
     };
@@ -50,10 +52,10 @@ function BottomNotePopup({ isOpen, setIsOpen }) {
                         </div>
                        
                         <div className='flex-row align-items-center gap-12 w-100' style={{marginTop:'24px'}}>
-                            <button type="submit" className="button-secondary button-primary w-100">
+                            <button type="submit" className="button-secondary button-primary w-100" onClick={closePopup}>
                                 Annuler
                             </button>
-                            <button type="submit" className="button-primary w-100" >
+                            <button type="submit" className="button-primary w-100" onClick={closePopup}>
                                 Soumettre
                             </button>
                         </div>

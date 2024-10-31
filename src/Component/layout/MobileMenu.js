@@ -10,12 +10,12 @@ import profileWIcon from '../../assets/Profileactive.svg'
 import acceuilbgwIcon from '../../assets/Homeactive.svg'
 import logo from '../../assets/Logo.svg'
 
-function MobileMenu({ bgcolor, circle, autoProfile, bottomStyle }) {
+function MobileMenu() {
+    const userType = localStorage.getItem('userType');
     const lastSegment = window.location.pathname.split('/').filter(Boolean).pop();
-    console.log("lastSegment", lastSegment)
     const [active, setActive] = useState("home");
     const getIconAcceuil = () => {
-        if (autoProfile) {
+        if (userType === 'automobiliste') {
             return active === "home" ? acceuilBIcon : acceuilIcon;
         } else {
             return active === "home" ? acceuilbgwIcon : acceuilwIcon;
@@ -24,24 +24,23 @@ function MobileMenu({ bgcolor, circle, autoProfile, bottomStyle }) {
 
     const getIconProfile = () => {
 
-        if (autoProfile) {
+        if (userType === 'automobiliste') {
             return active === "profile" ? profileBIcon : profileIcon;
         } else {
             return active === "profile" ? profilebgWIcon : profileWIcon;
         }
     };
+
     useEffect(() => {
-        // Check lastSegment and set active based on it
         if (lastSegment === "profil-auto" || lastSegment === "profile-depanneur") {
-          setActive("profile");
+            setActive("profile");
         } else {
-          setActive("home");
+            setActive("home");
         }
-      }, [lastSegment]);
-    
-      console.log("Active tab:", active);
+    }, [lastSegment]);
+
     return (
-        <div className={`navbar ${bottomStyle}`}>
+        <div className={`navbar ${userType === 'automobiliste' ? 'navbar-bottom' : 'navbar-bottom0'}`}>
             <div className='nav-container'>
                 <Link to={'/home'}
                     className={`nav-item ${active === "home" ? "active" : ""} flex-Column align-items-center gap-6`}
@@ -49,7 +48,7 @@ function MobileMenu({ bgcolor, circle, autoProfile, bottomStyle }) {
                 >
                     <img src={getIconAcceuil()} alt='' />
                     <span className={`paraSmallSemi
-                         ${autoProfile
+                         ${userType === 'automobiliste'
                             ? (active === "home" ? "primary-blue-color" : "grey-color-500")
                             : "white-color"}`}>Accueil</span>
                 </Link>
@@ -61,19 +60,19 @@ function MobileMenu({ bgcolor, circle, autoProfile, bottomStyle }) {
                     <img src={logo} alt='' style={{ marginBottom: '35px' }} />
                 </Link>
 
-                <Link to={`${autoProfile ? '/profil-auto' : '/profile-depanneur'}`}
+                <Link to={`${userType === 'automobiliste' ? '/profil-auto' : '/profile-depanneur'}`}
                     className={`nav-item ${active === "profile" ? "active" : ""} flex-Column align-items-center gap-6`}
                     onClick={() => setActive("profile")}
                 >
                     <img src={getIconProfile()} alt='' />
                     <span className={`paraSmallSemi 
-                         ${autoProfile
+                         ${userType === 'automobiliste'
                             ? (active === "profile" ? "primary-blue-color" : "grey-color-500")
                             : "white-color"}`}>Profile</span>
                 </Link>
             </div>
-            <div className={`effect ${bgcolor}`}>
-                <div className={`circle ${circle}`}></div>
+            <div className={`effect ${userType === 'automobiliste' ? 'effectWhite' : 'effectBlue'}`}>
+                <div className={`circle ${userType === 'automobiliste' ? 'circleWhite' : 'circleblue'}`}></div>
             </div>
         </div>
     )

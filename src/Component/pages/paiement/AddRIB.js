@@ -2,22 +2,34 @@ import React, { useState } from 'react'
 import arrow from "../../../assets/Arrow - Left.svg"
 import RIB from '../../../assets/ribPhoto.svg'
 import VerificationPopup from '../../common/VerificationPopup'
+import { useNavigate } from 'react-router-dom';
 function AddRIB() {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const previousPage = () => {
+        navigate('/inscrit-particulier');
+
+    };
+
     const openPopup = () => {
         setIsOpen(true);
-      };
+        setTimeout(() => {
+            navigate('/profile-depanneur');
+            localStorage.setItem('userType', 'dapanneur');
+
+        }, 1000);
+    };
     return (
         <div className='Container'>
             <div>
                 <div className='flex-row align-items-center arrow-top gap-16'
                     style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" />
+                    <img src={arrow} alt="arrow" onClick={previousPage} />
                     <h4 className='grey-color-900 title-nowrap'>Ajouter votre RIB</h4>
                 </div>
                 <div className='flex-Column gap-30'>
                     <span className='paraXlargeR primary-dark-color'>
-                        Veuillez ajouter votre RIB (Relevé d'Identité Bancaire) 
+                        Veuillez ajouter votre RIB (Relevé d'Identité Bancaire)
                         pour que nous puissions transférer vos gains directement
                         sur votre compte
                     </span>
@@ -58,15 +70,16 @@ function AddRIB() {
                         </div>
                     </form>
                 </div>
+            
             </div>
             <VerificationPopup
-             isOpen={isOpen}
-             setIsOpen={setIsOpen}
-             title='Votre Compte Dépanneur est Prêt !'
-             description="Félicitations ! Votre compte dépanneur AutoCopain est maintenant prêt. Vous pouvez dès à présent commencer à recevoir des demandes d'assistance."
-             valid={true}
-             bottomType='loader'
-             />
+                    isOpen={isOpen}
+                    setIsOpen={setIsOpen}
+                    title='Votre Compte Dépanneur est Prêt !'
+                    description="Félicitations ! Votre compte dépanneur AutoCopain est maintenant prêt. Vous pouvez dès à présent commencer à recevoir des demandes d'assistance."
+                    valid='OK'
+                    bottomType='loader'
+                />
             <button type="submit" className="button-primary w-100" onClick={openPopup}>Envoyer </button>
         </div>
     )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import localisation from '../../../assets/localisation.svg'
 import { localisationData } from '../../constants'
 import localbtn from '../../../assets/Button.svg'
@@ -9,8 +9,11 @@ import garagePosition from '../../../assets/garage-position.svg'
 import stationPosition from '../../../assets/station-position.svg'
 import avatarPosition from '../../../assets/Avatar-position.svg'
 import MobileMenu from '../../layout/MobileMenu'
+import VerificationPopup from '../../common/VerificationPopup'
 
 function Home() {
+    const [isOpen, setIsOpen] = useState(true);
+
     return (
         <div>
             <div className='position-relative'>
@@ -59,7 +62,16 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <MobileMenu bgcolor='effectWhite' circle='circleWhite' autoProfile={true} bottomStyle='navbar-bottom' />
+          
+            <MobileMenu  />
+            <VerificationPopup
+             isOpen={isOpen}
+             setIsOpen={setIsOpen}
+             title='Activer la Localisation'
+             description="Nous avons besoin d'accéder à votre localisation pour pouvoir utiliser ce service."
+             valid='local'
+             bottomType='vide'
+             />
         </div>
     )
 }

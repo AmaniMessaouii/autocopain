@@ -7,27 +7,29 @@ import warring from '../../assets/Info-Square0.svg'
 import key from '../../assets/Lock0.svg'
 import amis from '../../assets/Users0.svg'
 import logout from '../../assets/Logout.svg'
+import { Link } from 'react-router-dom'
 function Menu({setIsOpen}) {
-
+    const userType = localStorage.getItem('userType');
+ console.log(userType)
     const openPopup = () => {
         setIsOpen(true);
       };
   return (
     <div className='flex-Column gap-20'>
-    <div className='flex-row align-items-center justify-content-between gap-12'>
+    <Link to={'/edit-profil'} className='flex-row align-items-center justify-content-between gap-12'>
         <div className='flex-row align-items-center gap-16'>
             <img src={profile} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>Gérer le compte autocopain</span>
         </div>
         <img src={arrow} alt='' />
-    </div>
-    <div className='flex-row align-items-center justify-content-between gap-12'>
+    </Link>
+    <Link to={`${userType === 'dapanneur' ? '/demandes' : '/panne'}`} className='flex-row align-items-center justify-content-between gap-12'>
         <div className='flex-row align-items-center gap-16'>
             <img src={pannes} alt='' />
-            <span className='paraXlargeSemi primary-dark-color'>Mes pannes</span>
+            <span className='paraXlargeSemi primary-dark-color'>{userType === 'automobiliste' ? 'Mes pannes' : 'Mes demandes '}</span>
         </div>
         <img src={arrow} alt='' />
-    </div>
+    </Link>
     <div className='flex-row align-items-center justify-content-between gap-12'>
         <div className='flex-row align-items-center gap-16'>
             <img src={notification} alt='' />
@@ -35,13 +37,13 @@ function Menu({setIsOpen}) {
         </div>
         <img src={arrow} alt='' />
     </div>
-    <div className='flex-row align-items-center justify-content-between gap-12'>
+    <Link to={'/centre-assistance'} className='flex-row align-items-center justify-content-between gap-12'>
         <div className='flex-row align-items-center gap-16'>
             <img src={warring} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>Centre d’assistance</span>
         </div>
         <img src={arrow} alt='' />
-    </div>
+    </Link>
     <div className='flex-row align-items-center justify-content-between gap-12'>
         <div className='flex-row align-items-center gap-16'>
             <img src={key} alt='' />

@@ -9,7 +9,7 @@ function PanneList() {
             <span className='primary-dark-color text-center paraXlargeR'>Veuillez sélectionner vos services</span>
          <ServicesList />
         </div>
-        <MobileMenu bgcolor='effectWhite' circle='circleWhite' autoProfile={true} bottomStyle='navbar-bottom' />
+        <MobileMenu />
 
 </div>
   )

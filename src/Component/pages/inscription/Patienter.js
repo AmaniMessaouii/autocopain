@@ -15,9 +15,10 @@ function Patienter() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsOpen(true); 
-        }, 3000);
+        }, 1000,  navigate('/home'));
 
         return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return (
         <div className="Container">

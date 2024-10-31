@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import BottomPopup from '../../common/BottomPopup'
 import { useNavigate } from 'react-router-dom'
 function InfoSupplementaires() {
-    const [loader, setLoader] = useState(false);
+    // const [loader, setLoader] = useState(false);
     const [value, setValue] = useState({
         nomEntreprise: "",
         numSiret: "",
@@ -23,7 +23,7 @@ function InfoSupplementaires() {
 
     const openPopup = () => {
         setIsOpen(true);
-      };
+    };
     const handleChange = (e) => {
         const { name, value } = e.target;
 
@@ -69,11 +69,12 @@ function InfoSupplementaires() {
         navigate('/services');
 
     };
-    
+
     const onFinish = (e) => {
         // if (validate()) {
-            setLoader(true);
-            toast.success('success !', { theme: 'light' });
+        // setLoader(true);
+        toast.success('success !', { theme: 'light' });
+        navigate('/home');
 
         // } else {
         //     setLoader(false);
@@ -85,7 +86,7 @@ function InfoSupplementaires() {
         if (storedServices.length > 0) {
             setValue(prevValue => ({
                 ...prevValue,
-                service: storedServices.join(', ') 
+                service: storedServices.join(', ')
             }));
         }
     }, []);
@@ -94,7 +95,7 @@ function InfoSupplementaires() {
             <div>
                 <div className='flex-row align-items-center arrow-top gap-16'
                     style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow"  onClick={previousPage}/>
+                    <img src={arrow} alt="arrow" onClick={previousPage} />
                     <h4 className='grey-color-900'>S’inscrire</h4>
                 </div>
                 <div className='flex-Column gap-30'>
@@ -143,7 +144,7 @@ function InfoSupplementaires() {
                                     value={value.service}
                                 />
                                 <div className="input-icon-right">
-                                    <img src={arrowIcon} alt="work Icon" className='icon-input' onClick={typeServices}/>
+                                    <img src={arrowIcon} alt="work Icon" className='icon-input' onClick={typeServices} />
                                 </div>
                             </div>
                             {/* {errors.service && <span className="error-message">{errors.service}</span>} */}
@@ -172,16 +173,19 @@ function InfoSupplementaires() {
                                     className="input-field"
                                     onChange={handleChange}
                                     value={value.assurance}
+                                    onClick={openPopup}
+
 
                                 />
                                 <div className="input-icon-right">
-                                    <img src={cameraIcon} alt="camera Icon" className='icon-input' />
+                                    <img src={cameraIcon} alt="camera Icon" className='icon-input' onClick={openPopup}
+                                    />
                                 </div>
                             </div>
                             {/* {errors.assurance && <span className="error-message">{errors.assurance}</span>} */}
                         </div>
                         <div className='flex-Column'>
-                            <div className='input-group w-100 flex-row align-items-center'>
+                            <div className='input-group w-100 flex-row align-items-center' >
 
                                 <input
                                     type="text"
@@ -190,10 +194,11 @@ function InfoSupplementaires() {
                                     className="input-field"
                                     onChange={handleChange}
                                     value={value.kpis}
+                                    onClick={openPopup}
 
                                 />
                                 <div className="input-icon-right">
-                                    <img src={cameraIcon} alt="camera Icon" className='icon-input' onClick={openPopup}/>
+                                    <img src={cameraIcon} alt="camera Icon" className='icon-input' onClick={openPopup} />
                                 </div>
                             </div>
                             {/* {errors.kpis && <span className="error-message">{errors.kpis}</span>} */}
@@ -201,9 +206,9 @@ function InfoSupplementaires() {
                     </form>
                 </div>
             </div>
-           <BottomPopup isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <button type="submit" className="button-primary w-100" disabled={loader} onClick={onFinish}>
-                {loader ? 'Chargement...' : 'Continuer'}
+            <BottomPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+            <button type="submit" className="button-primary w-100"  onClick={onFinish}>
+                Continuer
             </button>
         </div>
     )

@@ -3,13 +3,20 @@ import arrow from "../../../assets/Arrow - Left.svg"
 import call from '../../../assets/appel-icon.svg'
 import vocal from '../../../assets/vocale.svg'
 import gallery from '../../../assets/gallery.svg'
+import { useNavigate } from 'react-router-dom'
 function ServiceClient() {
+  const navigate = useNavigate();
+
+  const previousPage = () => {
+      navigate('/centre-assistance');
+
+  };
   return (
     <div className='Container'>
       <div>
         <div className='flex-row align-items-center justify-content-between' style={{ marginBottom: "30px" }}>
           <div className='flex-row align-items-center gap-16'>
-            <img src={arrow} alt="arrow" className='arrow-top' style={{ margin: 0 }} />
+            <img src={arrow} alt="arrow" className='arrow-top' style={{ margin: 0 }} onClick={previousPage}/>
             <h4 className='grey-color-900 title-nowrap'>Service clientéle</h4>
           </div>
           <img src={call} alt="call" />

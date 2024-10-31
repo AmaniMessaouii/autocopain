@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import { servicesData } from "../constants"
 import tick from '../../assets/Tick Square.svg'
+import { useNavigate } from 'react-router-dom';
 function ServicesList() {
     const [selectedServices, setSelectedServices] = useState([]);
+    const navigate = useNavigate();
+
     useEffect(() => {
-        const storedServices = JSON.parse(localStorage.getItem('selectedServices')) || [];
-        setSelectedServices(storedServices);
+      const storedServices = JSON.parse(localStorage.getItem('selectedServices')) || [];
+      setSelectedServices(storedServices);
     }, []);
-
-
-
+  
     const handleServiceClick = (title) => {
-        const updatedSelectedServices = selectedServices.includes(title)
-            ? selectedServices.filter(service => service !== title)
-            : [...selectedServices, title];
-
-        setSelectedServices(updatedSelectedServices);
-        localStorage.setItem('selectedServices', JSON.stringify(updatedSelectedServices));
+      let updatedSelectedServices;
+  
+        // only allow one selection
+      if (window.location.pathname === '/panne-list') {
+        updatedSelectedServices = [title];
+        navigate('/declarer')
+      } else {
+        // Allow multiple selections
+        updatedSelectedServices = selectedServices.includes(title)
+          ? selectedServices.filter(service => service !== title)
+          : [...selectedServices, title];
+      }
+  
+      setSelectedServices(updatedSelectedServices);
+      localStorage.setItem('selectedServices', JSON.stringify(updatedSelectedServices));
     };
     return (
         <div className="services-grid">

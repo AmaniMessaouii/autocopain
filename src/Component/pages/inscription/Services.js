@@ -5,9 +5,13 @@ import ServicesList from '../../common/ServicesList';
 
 function Services() {
     const navigate = useNavigate();
-   
+    const userType = localStorage.getItem('userType');
+
     const previousPage = () => {
-        navigate('/info-supplementaires');
+        if (userType === 'automobiliste'){
+            navigate('/inscrit-particulier');
+
+        } else navigate('/info-supplementaires')
     };
 
     return (

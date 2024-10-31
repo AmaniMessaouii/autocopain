@@ -3,29 +3,50 @@ import logo from "../../../assets/Logo.svg"
 import avatar from "../../../assets/photoAvatar.svg"
 import profilelogo from '../../../assets/depanprofile.svg'
 import DeconnectPopup from '../../common/DeconnectPopup'
-import VerificationPopup from '../../common/VerificationPopup'
 import edit from '../../../assets/EditSquare.svg'
 import stars from '../../../assets/stars.svg'
 import Menu from '../../common/Menu'
 import MobileMenu from '../../layout/MobileMenu'
+import { useNavigate } from 'react-router-dom'
 function ProfileDepanneur() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isOpen0, setIsOpen0] = useState(false);
-    const openModal = () => {
-        setIsOpen0(true);
+    const [uploadedImage, setUploadedImage] = useState(null);
+    const navigate = useNavigate();
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            setUploadedImage(imageURL);
+        }
     };
+
+    const openProfile = () => {
+        navigate('/profil-auto');
+        localStorage.setItem('userType', 'automobiliste');
+
+    };
+   
     return (
         <div className='Container' style={{ padding: 0 }}>
             <div>
-                <div className='bg-blue padding-container'  style={{ paddingBottom: '24px' }}>
+                <div className='bg-blue padding-container' style={{ paddingBottom: '24px' }}>
                     <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
                         <img src={logo} alt="arrow" />
                         <h4 className='white-color title-nowrap'>Profil</h4>
                     </div>
                     <div className='flex-Column align-items-center gap-12 '>
                         <div className='position-relative'>
-                            <img src={avatar} alt='' />
-                            <img src={edit} alt='' className='position-absolute edit-position' />
+                            <img src={uploadedImage || avatar} alt="avatar" className='avatar-img' />
+                            <label>
+                                <img src={edit} alt='' className='position-absolute edit-position' />
+                                <input
+                                    type="file"
+                                    accept="image/png, image/jpeg"
+                                    onChange={handleImageUpload}
+                                    style={{ display: 'none' }}
+                                />
+                            </label>
                         </div>
                         <div className='flex-row align-items-center gap-8'>
                             <img src={stars} alt="stars" />
@@ -36,23 +57,14 @@ function ProfileDepanneur() {
                     </div>
                 </div>
                 <div className='flex-Column gap-20 padding-bottom'>
-                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20' onClick={openModal}>
+                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20' onClick={openProfile}>
                         <span className='white-color paraLargeB title-max-w'>Basculez en profil automobiliste</span>
                         <img src={profilelogo} alt='' />
                     </div>
                     <Menu setIsOpen={setIsOpen} />
                 </div>
             </div>
-            <MobileMenu bgcolor='effectBlue' circle="circleblue" autoProfile={false} bottomStyle='navbar-bottom0'/>
-            <VerificationPopup
-                isOpen={isOpen0}
-                setIsOpen={setIsOpen0}
-                title='Complétez Votre Profil Dépanneur'
-                description="Pour commencer à recevoir des demandes d'assistance, veuillez compléter votre profil en fournissant les informations nécessaires."
-                valid={true}
-                bottomType='button'
-                buttonContent='Compléter'
-            />
+            <MobileMenu />
             <DeconnectPopup isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
     )

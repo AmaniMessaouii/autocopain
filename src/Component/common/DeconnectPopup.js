@@ -1,8 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 function DeconnectPopup({ isOpen, setIsOpen }) {
+    const navigate = useNavigate();
+
     const closePopup = () => {
         setIsOpen(false);
+    };
+    const signOut = () => {
+        navigate('/login');
+        localStorage.removeItem('userType');
+        localStorage.removeItem('selectedServices');
     };
     return (
         <div>
@@ -15,10 +23,10 @@ function DeconnectPopup({ isOpen, setIsOpen }) {
                           <h5 className='grey-color-800 title-max-w text-center'>Êtes-vous sûr de vouloir vous
                           déconnecter ?</h5>
                         <div className='flex-row align-items-center gap-12 w-100' style={{ marginTop: '24px' }}>
-                            <button type="submit" className="button-secondary button-primary w-100">
+                            <button type="submit" className="button-secondary button-primary w-100" onClick={closePopup}>
                                 Annuler
                             </button>
-                            <button type="submit" className="button-primary w-100" >
+                            <button type="submit" className="button-primary w-100" onClick={signOut}>
                                 Déconnexion
                             </button>
                         </div>

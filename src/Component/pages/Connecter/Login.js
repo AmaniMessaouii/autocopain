@@ -8,9 +8,9 @@ import hideB from "../../../assets/HideB.svg"
 import lock from "../../../assets/Lock.svg"
 import lockB from "../../../assets/LockB.svg"
 import arrow from "../../../assets/Arrow - Left.svg"
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { LoginUser } from '../../../redux/actions/AuthActions'
+// import { LoginUser } from '../../../redux/actions/AuthActions'
 import { toast } from 'react-toastify';
 
 function Login() {
@@ -27,7 +27,7 @@ function Login() {
         loginTyping: false,
         passwordTyping: false
     });
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -91,11 +91,12 @@ function Login() {
         e.preventDefault();
         if (validate()) {
             setLoader(true);
-            const formData = new FormData();
-            Object.keys(value).forEach((key) => {
-                formData.append(key, value[key]);
-            });
-            dispatch(LoginUser(formData));
+            navigate("/home")
+            // const formData = new FormData();
+            // Object.keys(value).forEach((key) => {
+            //     formData.append(key, value[key]);
+            // });
+            // dispatch(LoginUser(formData));
             toast.success('success !', { theme: 'light' });
 
         } else {

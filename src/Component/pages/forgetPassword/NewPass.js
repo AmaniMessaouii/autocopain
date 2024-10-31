@@ -102,7 +102,7 @@ function NewPass() {
              setIsOpen={setIsOpen}
              title='Réussi!'
              description="Votre compte est prêt à être utilisé. Vous serez redirigé vers la page d'accueil dans quelques secondes."
-             valid={false}
+             valid='reussi'
              bottomType='loader'
              />
     

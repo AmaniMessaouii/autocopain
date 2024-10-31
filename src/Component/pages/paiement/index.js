@@ -4,18 +4,27 @@ import timeIcon from '../../../assets/timeIcon.svg'
 import positionIcon from '../../../assets/positionIcon.svg'
 import priceIcon from '../../../assets/priceIcon.svg'
 import VerificationPopup from '../../common/VerificationPopup'
+import { useNavigate } from 'react-router-dom'
 
 function Paiement() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
   const openPopup = () => {
     setIsOpen(true);
   };
+  const previousPage = () => {
+    navigate('/depanneur-accepter');
+
+};
+
   return (
-    <div className='Container' style={{padding: 0}}>
+    <div className='Container' style={{ padding: 0 }}>
       <div className='padding-container'>
         <div className='flex-row align-items-center arrow-top gap-16'
           style={{ marginBottom: "30px" }}>
-          <img src={arrow} alt="arrow" />
+          <img src={arrow} alt="arrow" onClick={previousPage}
+          />
           <h4 className='grey-color-900'>Paiements</h4>
         </div>
         <div className='flex-Column gap-30'>
@@ -98,8 +107,15 @@ function Paiement() {
           </form>
         </div>
       </div>
+      <VerificationPopup
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        title='Paiement Réussi !'
+        description="Merci pour votre paiement. Votre transaction a été effectuée avec succès. Vous recevrez un e-mail de confirmation sous peu."
+        valid='OK'
+        bottomType='vide'
+      />
       <div className='flex-Column gap-24 horizontal-divider-rounder'>
-
         <div className='flex-row align-items-center justify-content-between gap-32 paiement-details'>
           <div className='flex-row align-items-center gap-8'>
             <img src={positionIcon} alt='' />
@@ -118,14 +134,7 @@ function Paiement() {
           Payer
         </button>
       </div>
-      <VerificationPopup
-             isOpen={isOpen}
-             setIsOpen={setIsOpen}
-             title='Paiement Réussi !'
-             description="Merci pour votre paiement. Votre transaction a été effectuée avec succès. Vous recevrez un e-mail de confirmation sous peu."
-             valid={true}
-             bottomType='vide'
-             />
+
     </div>
   )
 }

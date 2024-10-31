@@ -11,6 +11,15 @@ import MobileMenu from '../../layout/MobileMenu'
 function ProfileAuto() {
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen0, setIsOpen0] = useState(false);
+    const [uploadedImage, setUploadedImage] = useState(null);
+
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const imageURL = URL.createObjectURL(file);
+            setUploadedImage(imageURL);
+        }
+    };
 
     const openModal = () => {
         setIsOpen0(true);
@@ -24,10 +33,19 @@ function ProfileAuto() {
                 </div>
                 <div className='flex-Column gap-20'>
                     <div className='flex-Column align-items-center gap-12 '>
-                        <div className='position-relative'>
-                            <img src={avatar} alt='' />
-                            <img src={edit} alt='' className='position-absolute edit-position' />
+                    <div className='position-relative'>
+                            <img src={uploadedImage || avatar} alt="avatar" className='avatar-img' />
+                            <label>
+                                <img src={edit} alt='' className='position-absolute edit-position' />
+                                <input
+                                    type="file"
+                                    accept="image/png, image/jpeg"
+                                    onChange={handleImageUpload}
+                                    style={{ display: 'none' }}
+                                />
+                            </label>
                         </div>
+                
                         <h4 className='primary-dark-color'>Wajdi Madani</h4>
                         <span className='paraMediumR grey-color-900'>+33 06 00 55 00 88</span>
                     </div>
@@ -39,13 +57,13 @@ function ProfileAuto() {
                     <Menu setIsOpen={setIsOpen} />
                 </div>
             </div>
-            <MobileMenu bgcolor='effectWhite' circle='circleWhite' autoProfile={true} bottomStyle='navbar-bottom'/>
+            <MobileMenu />
             <VerificationPopup
                 isOpen={isOpen0}
                 setIsOpen={setIsOpen0}
                 title='Complétez Votre Profil Dépanneur'
                 description="Pour commencer à recevoir des demandes d'assistance, veuillez compléter votre profil en fournissant les informations nécessaires."
-                valid={true}
+                valid='profile'
                 bottomType='button'
                 buttonContent='Compléter'
             />

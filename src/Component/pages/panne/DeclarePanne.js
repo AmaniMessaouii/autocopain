@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import adressIcon from '../../../assets/adressicon.svg'
 import arrow from "../../../assets/Arrow - Left.svg"
-import roue from "../../../assets/roue.svg";
-
+import { servicesData } from '../../constants';
+import { useNavigate } from 'react-router-dom';
 function DeclarePanne() {
+    const [filteredServices, setFilteredServices] = useState([]);
+    const navigate = useNavigate();
+    const previousPage = () => {
+        navigate('/panne-list');
+    };
+
+    useEffect(() => {
+        const storedServices = JSON.parse(localStorage.getItem('selectedServices')) || [];
+        const matchedServices = servicesData.filter(service => 
+          storedServices.includes(service.title)
+        );
+        setFilteredServices(matchedServices);
+      }, []);
+     
+      const handleClick =()=>{
+        navigate('/confirmation');
+
+      }
     return (
         <div className='Container'>
             <div>
                 <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" />
+                    <img src={arrow} alt="arrow" onClick={previousPage}/>
                     <h4 className='grey-color-900 title-nowrap'>Signaler votre type de panne</h4>
                 </div>
 
                 <div className='flex-Column gap-24'>
                     <div className='flex-Column gap-12 align-items-center justify-content-center'>
-                    <img src={roue} alt="" />
-                    <span className='paraLargeB primary-dark-color'>Roue crevee</span>
+                    <img src={filteredServices[0]?.image} alt="" />
+                    <span className='paraLargeB primary-dark-color'>{filteredServices[0]?.title}</span>
                     </div>
                     <div className='flex-Column gap-24'>
                         <div className='input-group w-100 flex-row align-items-center'>
@@ -60,7 +78,7 @@ function DeclarePanne() {
 
             </div>
 
-            <button type="submit" className="button-primary w-100" >
+            <button type="submit" className="button-primary w-100" onClick={handleClick}>
                 Déclarer
             </button>
         </div>
