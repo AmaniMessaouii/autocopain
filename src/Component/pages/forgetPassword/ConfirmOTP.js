@@ -26,7 +26,7 @@ function ConfirmOTP() {
             <div className='h-100'>
                 <div className='flex-row align-items-center arrow-top gap-16'
                     style={{ marginBottom: "0px" }}>
-                    <img src={arrow} alt="arrow" onClick={previousPage}/>
+                    <img src={arrow} alt="arrow" className='cursor-pointer' onClick={previousPage}/>
                     <h4 className='grey-color-900 title-nowrap'>Entrez le code</h4>
                 </div>
                 <div className="flex-Column align-items-center justify-content-center gap-48 height-calc-btn">

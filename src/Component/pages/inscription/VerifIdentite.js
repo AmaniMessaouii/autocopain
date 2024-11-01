@@ -17,7 +17,7 @@ function VerifIdentite() {
 
         <div className="Container">
             <div>
-                <img src={arrow} alt="arrow" className='arrow-top' onClick={previousPage}/>
+                <img src={arrow} alt="arrow" className='arrow-top cursor-pointer' onClick={previousPage}/>
                 <div className="verification-content flex-Column gap-30">
                     <h3 className='primary-dark-color text-center'>Vérifions votre identité</h3>
                     <div className='flex-Column gap-40'>

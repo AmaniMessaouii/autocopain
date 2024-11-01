@@ -15,7 +15,7 @@ function DepanneursDispo() {
         <div className='Container'>
             <div>
                 <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" onClick={previousPage}
+                    <img src={arrow} alt="arrow" className='cursor-pointer' onClick={previousPage}
                     />
                     <h4 className='grey-color-900 title-nowrap'>Nos dépanneurs disponibles</h4>
                 </div>

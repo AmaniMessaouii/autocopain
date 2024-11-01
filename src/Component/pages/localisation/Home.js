@@ -10,22 +10,31 @@ import stationPosition from '../../../assets/station-position.svg'
 import avatarPosition from '../../../assets/Avatar-position.svg'
 import MobileMenu from '../../layout/MobileMenu'
 import VerificationPopup from '../../common/VerificationPopup'
+import garageActive from '../../../assets/garagesactive.svg'
+import stationActive from '../../../assets/stationsactive.svg'
 
 function Home() {
     const [isOpen, setIsOpen] = useState(true);
+    const [active, setActive] = useState("tous");
 
     return (
         <div>
             <div className='position-relative'>
                 <img src={localisation} alt='' className='localisation-img' />
                 <div className='flex-Column gap-8 groupe-btn-local position-absolute'>
-                    <button className="btn-map-groupe bg-blue paraMediumR w-100 flex-row justify-content-center white-color align-items-center gap-16" >
+                    <button className={`btn-map-groupe paraMediumR w-100 flex-row justify-content-center align-items-center gap-16 
+                     ${active === "tous" ? "bg-blue white-color" : "bg-white-color primary-dark-color"}`}
+                      onClick={() => setActive("tous")} >
                         Tous</button>
                     <div className='flex-row gap-8'>
-                        <button className="btn-map-groupe paraMediumR bg-white-color primary-dark-color w-100 flex-row justify-content-center align-items-center gap-12" >
-                            <img src={stations} alt='' /> Stations </button>
-                        <button className="btn-map-groupe paraMediumR bg-white-color primary-dark-color w-100 flex-row justify-content-center align-items-center gap-12" >
-                            <img src={garages} alt='' /> Garages </button>
+                        <button className={`btn-map-groupe paraMediumR w-100 flex-row justify-content-center align-items-center gap-12 
+                        ${active === "stations" ? "bg-blue white-color" : "bg-white-color primary-dark-color"}`}
+                         onClick={() => setActive("stations")} >
+                            <img src={active === "stations" ? stationActive : stations} alt='' /> Stations </button>
+                        <button className={`btn-map-groupe paraMediumR w-100 flex-row justify-content-center align-items-center gap-12 
+                        ${active === "garages" ? "bg-blue white-color" : "bg-white-color primary-dark-color"}`}
+                         onClick={() => setActive("garages")}>
+                            <img src={active === "garages" ? garageActive : garages } alt='' /> Garages </button>
                     </div>
                 </div>
                 <img src={garagePosition} alt='' className='position-absolute garage-position' />
@@ -33,7 +42,7 @@ function Home() {
                 <img src={stationPosition} alt='' className='position-absolute station-position' />
                 <div className='position-absolute avatar-map'>
                     <div className='avatar-map-2'>
-                            <img src={avatarPosition} alt='' className='avatar-position' />
+                        <img src={avatarPosition} alt='' className='avatar-position' />
                     </div>
                 </div>
             </div>
@@ -62,16 +71,16 @@ function Home() {
                     </div>
                 </div>
             </div>
-          
-            <MobileMenu  />
+
+            <MobileMenu />
             <VerificationPopup
-             isOpen={isOpen}
-             setIsOpen={setIsOpen}
-             title='Activer la Localisation'
-             description="Nous avons besoin d'accéder à votre localisation pour pouvoir utiliser ce service."
-             valid='local'
-             bottomType='vide'
-             />
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                title='Activer la Localisation'
+                description="Nous avons besoin d'accéder à votre localisation pour pouvoir utiliser ce service."
+                valid='local'
+                bottomType='vide'
+            />
         </div>
     )
 }

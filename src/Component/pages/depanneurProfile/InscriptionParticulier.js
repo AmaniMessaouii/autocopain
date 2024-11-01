@@ -49,7 +49,7 @@ function InscriptionParticulier() {
             <div>
                 <div className='flex-row align-items-center arrow-top gap-16'
                     style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" />
+                    <img src={arrow} alt="arrow" className='cursor-pointer' />
                     <h4 className='grey-color-900'>S’inscrire</h4>
                 </div>
                 <div className='flex-Column gap-30'>

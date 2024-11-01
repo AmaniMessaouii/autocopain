@@ -32,14 +32,14 @@ function ProfileDepanneur() {
             <div>
                 <div className='bg-blue padding-container' style={{ paddingBottom: '24px' }}>
                     <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                        <img src={logo} alt="arrow" />
+                        <img src={logo} alt="arrow" className='cursor-pointer' />
                         <h4 className='white-color title-nowrap'>Profil</h4>
                     </div>
                     <div className='flex-Column align-items-center gap-12 '>
                         <div className='position-relative'>
                             <img src={uploadedImage || avatar} alt="avatar" className='avatar-img' />
                             <label>
-                                <img src={edit} alt='' className='position-absolute edit-position' />
+                                <img src={edit} alt='' className='position-absolute edit-position cursor-pointer' />
                                 <input
                                     type="file"
                                     accept="image/png, image/jpeg"
@@ -57,7 +57,7 @@ function ProfileDepanneur() {
                     </div>
                 </div>
                 <div className='flex-Column gap-20 padding-bottom'>
-                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20' onClick={openProfile}>
+                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20 cursor-pointer' onClick={openProfile}>
                         <span className='white-color paraLargeB title-max-w'>Basculez en profil automobiliste</span>
                         <img src={profilelogo} alt='' />
                     </div>

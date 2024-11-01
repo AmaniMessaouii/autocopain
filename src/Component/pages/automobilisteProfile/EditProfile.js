@@ -21,7 +21,7 @@ function EditProfile() {
         <div className='Container' style={{ padding: 0 }}>
             <div className='padding-container'>
                 <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                    <img src={arrow} alt="arrow" onClick={previousPage} />
+                    <img src={arrow} alt="arrow"  className='cursor-pointer' onClick={previousPage} />
                     <h4 className='grey-color-900 title-nowrap'>Informations sur le compte</h4>
                 </div>
                 <form className='flex-Column gap-30'>

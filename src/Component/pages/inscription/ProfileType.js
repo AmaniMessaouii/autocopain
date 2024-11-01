@@ -23,7 +23,7 @@ const previousPage = () => {
     return (
         <div className='Container'>
             <div>
-                <img src={arrow} alt="arrow" className='arrow-top' onClick={previousPage} />
+                <img src={arrow} alt="arrow"  className='arrow-top cursor-pointer' onClick={previousPage} />
                     <div className='flex-Column gap-24'>
                         <div className='flex-Column align-items-center gap-16'>
                             <h3 className='text-center primary-dark-color'>Sélection du Type de Profil</h3>

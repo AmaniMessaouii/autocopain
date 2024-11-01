@@ -16,9 +16,9 @@ function ServiceClient() {
       <div>
         <div className='flex-row align-items-center justify-content-between' style={{ marginBottom: "30px" }}>
           <div className='flex-row align-items-center gap-16'>
-            <img src={arrow} alt="arrow" className='arrow-top' style={{ margin: 0 }} onClick={previousPage}/>
+            <img src={arrow} alt="arrow" className='arrow-top cursor-pointer' style={{ margin: 0 }} onClick={previousPage}/>
             <h4 className='grey-color-900 title-nowrap'>Service clientéle</h4>
-          </div>
+          </div>  
           <img src={call} alt="call" />
         </div>
         <div className=' flex-Column gap-24'>

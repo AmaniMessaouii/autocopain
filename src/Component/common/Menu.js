@@ -16,28 +16,28 @@ function Menu({setIsOpen}) {
       };
   return (
     <div className='flex-Column gap-20'>
-    <Link to={'/edit-profil'} className='flex-row align-items-center justify-content-between gap-12'>
+    <Link to={'/edit-profil'} className='flex-row align-items-center justify-content-between gap-12 cursor-pointer'>
         <div className='flex-row align-items-center gap-16'>
             <img src={profile} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>Gérer le compte autocopain</span>
         </div>
         <img src={arrow} alt='' />
     </Link>
-    <Link to={`${userType === 'dapanneur' ? '/demandes' : '/panne'}`} className='flex-row align-items-center justify-content-between gap-12'>
+    <Link to={`${userType === 'dapanneur' ? '/demandes' : '/panne'}`} className='flex-row align-items-center justify-content-between gap-12 cursor-pointer'>
         <div className='flex-row align-items-center gap-16'>
             <img src={pannes} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>{userType === 'automobiliste' ? 'Mes pannes' : 'Mes demandes '}</span>
         </div>
         <img src={arrow} alt='' />
     </Link>
-    <div className='flex-row align-items-center justify-content-between gap-12'>
+    <div className='flex-row align-items-center justify-content-between gap-12 '>
         <div className='flex-row align-items-center gap-16'>
             <img src={notification} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>Notification</span>
         </div>
         <img src={arrow} alt='' />
     </div>
-    <Link to={'/centre-assistance'} className='flex-row align-items-center justify-content-between gap-12'>
+    <Link to={'/centre-assistance'} className='flex-row align-items-center justify-content-between gap-12 cursor-pointer'>
         <div className='flex-row align-items-center gap-16'>
             <img src={warring} alt='' />
             <span className='paraXlargeSemi primary-dark-color'>Centre d’assistance</span>
@@ -58,7 +58,7 @@ function Menu({setIsOpen}) {
         </div>
         <img src={arrow} alt='' />
     </div>
-        <div className='flex-row align-items-center gap-16' onClick={openPopup}>
+        <div className='flex-row align-items-center gap-16 cursor-pointer' onClick={openPopup} >
             <img src={logout} alt='' />
             <span className='paraXlargeSemi red-color'>Se déconnecter</span>
         </div>

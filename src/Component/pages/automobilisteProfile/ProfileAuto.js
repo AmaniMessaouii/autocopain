@@ -28,7 +28,7 @@ function ProfileAuto() {
         <div className='Container'>
             <div className=''>
                 <div className='flex-row align-items-center arrow-top gap-16' style={{ marginBottom: "30px" }}>
-                    <img src={logo} alt="arrow" />
+                    <img src={logo} alt="arrow"  className='cursor-pointer' />
                     <h4 className='grey-color-900 title-nowrap'>Profil</h4>
                 </div>
                 <div className='flex-Column gap-20'>
@@ -36,7 +36,7 @@ function ProfileAuto() {
                     <div className='position-relative'>
                             <img src={uploadedImage || avatar} alt="avatar" className='avatar-img' />
                             <label>
-                                <img src={edit} alt='' className='position-absolute edit-position' />
+                                <img src={edit} alt='' className='position-absolute edit-position cursor-pointer' />
                                 <input
                                     type="file"
                                     accept="image/png, image/jpeg"
@@ -50,7 +50,7 @@ function ProfileAuto() {
                         <span className='paraMediumR grey-color-900'>+33 06 00 55 00 88</span>
                     </div>
                     <div className="horizontal-divider"></div>
-                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20' onClick={openModal}>
+                    <div className='card-depanneur bg-blue flex-row align-items-center justify-content-between gap-20 cursor-pointer' onClick={openModal}>
                         <span className='white-color paraLargeB title-max-w'>Rejoignez notre réseau de dépanneurs AutoCopain</span>
                         <img src={profilelogo} alt='' />
                     </div>
